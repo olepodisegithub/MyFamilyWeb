@@ -1,0 +1,36 @@
+﻿@page
+@model MyFamily.Pages.Relatives.IndexModel
+@{
+}
+
+<br>
+<h2>List Of Relatives</h2>
+<a class="btn btn-primary btn-sm" href="/Relatives/Create">New Relative</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>MaidenSurname</th>
+            <th>FirstName</th>
+            <th>OtherNames</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rel in Model.listRelatives)
+        {
+            <tr>
+                <td>@rel.id</td>
+                <td>@rel.MaidenSurname</td>
+                <td>@rel.FirstName</td>
+                <td>@rel.OtherNames</td>
+                <td>@rel.Gender</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Relatives/Edit?id=@rel.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Relatives/Delete?id=@rel.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
